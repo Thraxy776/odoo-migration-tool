@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <menuitem
+            name="Viacore Migration"
+            id="base.menu_viacore_migration_app"
+            sequence="25"
+        />
+        <menuitem name="Viacore Migration" id="base.menu_viacore_migration" parent="base.menu_viacore_migration_app" sequence="10" />
+        <menuitem name="Master Data" id="base.menu_viacore_migration_master" parent="base.menu_viacore_migration_app" sequence="20" />
+        <!--menuitem name="Reports" id="base.menu_property_reports" parent="base.menu_property_app" sequence="50" /-->
+        <menuitem name="Configurations" id="base.menu_viacore_migration_config" parent="base.menu_viacore_migration_app" sequence="900" />
+    </data>
+</odoo>
+
+<!--web_icon="deltatech_property,static/description/icon.png"-->

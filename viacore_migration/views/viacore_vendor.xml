@@ -1,0 +1,160 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <record id="view_viacore_vendor" model="ir.ui.view">
+            <field name="name">Vendors</field>
+            <field name="model">viacore.vendor</field>
+            <field name="priority" eval="1" />
+            <field name="arch" type="xml">
+                <tree decoration-info="status == 'revised'" decoration-danger="status == 'to_review'" duplicate="0" delete="0">
+                    <field name="legal_name" optional="show" />
+                    <field name="name" optional="show"/>
+                    <field name="vendor_id"  />
+                    <field name="external_id"  />
+                    <field name="legacy_vendor_ASB_ID" optional="show"/>
+                    <field name="legacy_vendor_Sage_ID" optional="show"/>
+                    <field name="webaddress" optional="show"/>
+                    <field name="category" optional="show"/>
+                    <field name="terms" optional="show"/>
+                    <field name="payment_email" optional="show"/>
+                    <field name="email" optional="show"/>
+                    <field name="phone" optional="show"/>
+                    <field name="paymethod" optional="show"/>
+<!--                    <field name="primary_currency" optional="hide"/>-->
+                    <field name="status" optional="show"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_viacore_vendor_form" model="ir.ui.view">
+            <field name="name">Vendor</field>
+            <field name="model">viacore.vendor</field>
+            <field name="priority" eval="1" />
+            <field name="arch" type="xml">
+                <form duplicate="0" delete="0">
+                    <header>
+                        <field name="status" widget="statusbar" statusbar_visible="to_review,revised"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="NETSUITE INFORMATION -- ** REVIEW THIS SECTION **">
+                                <field name="vendor_subsidiary" />
+                                <field name="external_id"  />
+                                <field name="status" />
+                                <field name="name"  />
+                                <field name="vendor_id"  />
+                                <field name="vendor_type"  />
+                                <field name="legal_name"  />
+                                <field name="category" options='{"no_create": True}' />
+                                <field name="terms"  options='{"no_create": True}'/>
+                                <field name="credlimit" />
+                                <field name="email"  />
+                                <field name="phone"  />
+                                <field name="payment_email"  />
+                                <field name="tax"  />
+                                <field name="taxID"  />
+                                <field name="primary_currency"  />
+                                <field name="vendorcustid"  />
+                            </group>
+                            <group string="Legacy Information">
+                                <field name="legacy_vendor_ASB_ID" readonly="1" />
+                                <field name="legacy_vendor_Sage_ID" readonly="1"/>
+                                <field name="legacy_vendor_name"  readonly="1"/>
+                                <field name="legacy_vendor_legalname"  readonly="1"/>
+                                <field name="legacy_vendor_category"  readonly="1" />-
+                                <field name="legacy_vendor_terms" readonly="1" />
+                                <field name="legacy_vendor_credlimit" readonly="1" />
+                                <field name="legacy_vendor_email" readonly="1" />
+                                <field name="legacy_vendor_phone" readonly="1" />
+                                <field name="legacy_vendor_payment_email" readonly="1" />
+                                <field name="legacy_vendor_tax_code" readonly="1" />
+                                <field name="legacy_vendor_tax_ID" readonly="1" />
+                                <field name="legacy_vendor_primary_currency" readonly="1" />
+                                <field name="legacy_vendor_CustID" readonly="1" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Addresses">
+                                <field name="addresses_ids">
+                                    <tree editable="bootom">
+                                        <field name="name" optional="show" />
+                                        <field name="shipping" optional="show" />
+                                        <field name="billing" optional="show" />
+                                        <field name="poline1" optional="show" />
+                                        <field name="poline2" optional="show" />
+                                        <field name="pocity" optional="show" />
+                                        <field name="postate" optional="show" />
+                                        <field name="pozip" optional="show" />
+                                        <field name="pocountry" optional="show" />
+                                        <field name="rmtline1" optional="show" />
+                                        <field name="rmtline2" optional="show" />
+                                        <field name="rmtcity" optional="show" />
+                                        <field name="rmtstate" optional="show" />
+                                        <field name="rmtzip" optional="show" />
+                                        <field name="rmtcountry" optional="show" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Bank Details">
+                                <field name="bank_ids">
+                                    <tree editable="bootom">
+                                        <field name="name" />
+                                        <field name="bank_acc_number" />
+                                        <field name="bank_number" />
+                                        <field name="bank_currency" />
+
+
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Other Fields">
+                                <group>
+                                    <group string="NetSuite Information -- ** review this section **">
+                                        <field name="webaddress"  />
+                                        <field name="paymethod"  />
+                                        <field name="eftpay"  />
+                                        <field name="vendor_1099type"  />
+                                        <field name="entitytype"  />
+                                        <field name="altphone"  />
+                                        <field name="vouchercomments"  />
+                                    </group>
+                                    <group string="Legacy Information">
+                                        <field name="legacy_vendor_web_address" readonly="1" />
+                                        <field name="legacy_vendor_pay_method" readonly="1" />
+                                        <field name="legacy_vendor_eft_pay" readonly="1" />
+                                        <field name="legacy_vendor_1099_type" readonly="1" />
+                                        <field name="legacy_vendor_entity_type" readonly="1" />
+                                        <field name="legacy_vendor_altphone" readonly="1" />
+
+                                    </group>
+                                </group>
+
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                    </div>
+
+                </form>
+            </field>
+        </record>
+        <record id="view_viacore_vendor_filter" model="ir.ui.view">
+            <field name="name">Vendor</field>
+            <field name="model">viacore.vendor</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="name" />
+                </search>
+            </field>
+        </record>
+        <record id="action_viacore_vendor" model="ir.actions.act_window">
+            <field name="name">Vendor</field>
+            <field name="res_model">viacore.vendor</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Vendor" id="menu_viacore_vendor" action="action_viacore_vendor" parent="base.menu_viacore_migration_master" />
+    </data>
+</odoo>

@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <record id="view_viacore_customer" model="ir.ui.view">
+            <field name="name">Customers</field>
+            <field name="model">viacore.customer</field>
+            <field name="priority" eval="1" />
+            <field name="arch" type="xml">
+                <tree decoration-info="status == 'revised'" decoration-danger="status == 'to_review'" duplicate="0" delete="0">
+                    <field name="legacy_id" optional="show" />
+                    <field name="legacy_parent" optional="show"/>
+                    <field name="name" optional="show"/>
+                    <field name="credit_limit" optional="show"/>
+                    <field name="sales_rep" optional="show"/>
+                    <field name="category" optional="show"/>
+                    <field name="terms" optional="show"/>
+                    <field name="email" optional="show"/>
+                    <field name="phone" optional="show"/>
+                    <field name="legacy_sales_rep" optional="hide"/>
+                    <field name="status" optional="show"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_viacore_customer_form" model="ir.ui.view">
+            <field name="name">Customer</field>
+            <field name="model">viacore.customer</field>
+            <field name="priority" eval="1" />
+            <field name="arch" type="xml">
+                <form duplicate="0" delete="0">
+                    <header>
+                        <field name="status" widget="statusbar" statusbar_visible="to_review,revised"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="NetSuite Information -- ** review this section **">
+                                <field name="subsidiary"  />
+                                <field name="status" />
+                                <field name="name"  />
+                                <field name="sales_rep" options='{"no_create": True}'/>
+                                <field name="credit_limit"  />
+                                <field name="category" options='{"no_create": True}' />
+                                <field name="terms"  options='{"no_create": True}'/>
+                                <field name="email"  />
+                                <field name="phone"  />
+                                <field name="tax"  options='{"no_create": True}'/>
+                            </group>
+                            <group string="Legacy Information">
+                                <field name="legacy_id" readonly="1" />
+                                <field name="legacy_parent" readonly="1"/>
+                                <field name="legacy_name"  readonly="1"/>
+                                <field name="legacy_sales_rep"  readonly="1" />
+                                <field name="legacy_credit_limit" readonly="1" />
+                                <field name="legacy_category" readonly="1" />
+                                <field name="legacy_terms" readonly="1" />
+                                <field name="legacy_email" readonly="1" />
+                                <field name="legacy_phone" readonly="1" />
+                                <field name="legacy_tax" readonly="1" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Addresses">
+                                <field name="addresses_ids">
+                                    <tree editable="bootom">
+                                        <field name="name" />
+                                        <field name="shipping" />
+                                        <field name="billing" />
+                                        <field name="line1" />
+                                        <field name="line2" />
+                                        <field name="city" />
+                                        <field name="state" />
+                                        <field name="zip" />
+                                        <field name="country" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Contacts">
+                                <field name="contacts_ids">
+                                    <tree editable="bootom">
+                                        <field name="first_name" />
+                                        <field name="last_name" />
+                                        <field name="email" />
+                                        <field name="job_title" />
+                                        <field name="contact_role" />
+                                        <field name="phone" />
+                                        <field name="mobile_phone" />
+                                        <field name="fax" />
+                                        <field name="website" />
+                                        <field name="notes" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Other Fields">
+                                <group>
+                                    <group string="NetSuite Information -- ** review this section **">
+                                        <field name="fax"  />
+                                        <field name="invoice_email"  />
+                                        <field name="duns"  />
+                                        <field name="service_rep"  />
+                                        <field name="tax_exemption1"  />
+                                        <field name="tax_exemption2"  />
+                                    </group>
+                                    <group string="Legacy Information">
+                                        <field name="legacy_fax" readonly="1" />
+                                        <field name="legacy_invoice_email" readonly="1" />
+                                        <field name="legacy_duns" readonly="1" />
+                                        <field name="legacy_service_rep" readonly="1" />
+                                        <field name="legacy_tax_exemption1" readonly="1" />
+                                        <field name="legacy_tax_exemption2" readonly="1" />
+                                        <field name="legacy_credit_date" readonly="1" />
+                                        <field name="legacy_first_sale" readonly="1" />
+                                    </group>
+                                </group>
+
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                    </div>
+
+                </form>
+            </field>
+        </record>
+        <record id="view_viacore_customer_filter" model="ir.ui.view">
+            <field name="name">Customer</field>
+            <field name="model">viacore.customer</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="name" />
+                </search>
+            </field>
+        </record>
+        <record id="action_viacore_customer" model="ir.actions.act_window">
+            <field name="name">Customer</field>
+            <field name="res_model">viacore.customer</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Customer" id="menu_viacore_customer" action="action_viacore_customer" parent="base.menu_viacore_migration_master" />
+    </data>
+</odoo>

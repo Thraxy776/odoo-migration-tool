@@ -1,0 +1,34 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+employee_manager,employee manager,model_viacore_employee,group_viacore_migration_manager,1,1,1,1
+location_manager,location manager,model_viacore_location,group_viacore_migration_manager,1,1,1,1
+customer_manager,customer manager,model_viacore_customer,group_viacore_migration_manager,1,1,1,1
+term_manager,term manager,model_viacore_term,group_viacore_migration_manager,1,1,1,1
+tax_manager,tax manager,model_viacore_tax,group_viacore_migration_manager,1,1,1,1
+category_manager,category manager,model_viacore_category,group_viacore_migration_manager,1,1,1,1
+vendor_category_manger,vendor category manager,model_viacore_vendor_category,group_viacore_migration_manager,1,1,1,1
+accounts_manager,accounts manager,model_viacore_accounts,group_viacore_migration_manager,1,1,1,1
+vendor_manager,vendor manager,model_viacore_vendor,group_viacore_migration_manager,1,1,1,1
+
+employee_user,employee user,model_viacore_employee,group_viacore_migration_user,1,0,0,0
+location_user,location user,model_viacore_location,group_viacore_migration_user,1,0,0,0
+customer_user,customer user,model_viacore_customer,group_viacore_migration_user,1,0,0,0
+term_user,term user,model_viacore_term,group_viacore_migration_user,1,1,1,1
+tax_user,tax user,model_viacore_tax,group_viacore_migration_user,1,1,1,1
+category_user,category user,model_viacore_category,group_viacore_migration_user,1,1,1,1
+vendor_category_user,vendor category user,model_viacore_vendor_category,group_viacore_migration_user,1,1,1,1
+accounts_user,accounts user,model_viacore_accounts,group_viacore_migration_user,1,0,0,0
+vendor_user,vendor user,model_viacore_vendor,group_viacore_migration_user,1,0,0,0
+
+access_viacore_employee,access_viacore_employee,model_viacore_employee,,1,1,1,1
+access_viacore_location,access_viacore_location,model_viacore_location,,1,1,1,1
+access_viacore_customer,access_viacore_customer,model_viacore_customer,,1,1,1,1
+access_viacore_address,access_viacore_address,model_viacore_address,,1,1,1,1
+access_viacore_contact,access_viacore_contact,model_viacore_contact,,1,1,1,1
+access_viacore_term,access_viacore_term,model_viacore_term,,1,1,1,1
+access_viacore_tax,access_viacore_tax,model_viacore_tax,,1,1,1,1
+access_viacore_category,access_viacore_category,model_viacore_category,,1,1,1,1
+access_viacore_vendor_category,access_viacore_category,model_viacore_vendor_category,,1,1,1,1
+access_viacore_accounts,access_viacore_accounts,model_viacore_accounts,,1,1,1,1
+access_viacore_vendor,access_viacore_vendor,model_viacore_vendor,,1,1,1,1
+access_viacore_vendor_address,access_viacore_vendor_address,model_viacore_vendor_address,,1,1,1,1
+access_viacore_vendor_banks,access_viacore_vendor_banks,model_viacore_vendor_banks,,1,1,1,1

@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+
+       <record id="view_viacore_accounts" model="ir.ui.view">
+            <field name="name">Accounts</field>
+            <field name="model">viacore.accounts</field>
+            <field name="priority" eval="1" />
+            <field name="arch" type="xml" >
+                <tree duplicate="0" delete="0">
+                     <field name="name" optional="show"/>
+                     <field name="number" optional="show"/>
+                     <field name="type" optional="show"/>
+                     <field name="belterra_name" optional="show"/>
+                     <field name="belterra_number" optional="show"/>
+                     <field name="asb_name" optional="show"/>
+                     <field name="asb_number" optional="show"/>
+                </tree>
+           </field>
+       </record>
+
+        <record id="view_viacore_accounts_form" model="ir.ui.view">
+            <field name="name">Accounts</field>
+            <field name="model">viacore.accounts</field>
+            <field name="priority" eval="1" />
+            <field name="arch" type="xml" >
+                 <form duplicate="0" delete="0">
+                    <header> </header>
+                     <sheet>
+                        <div class="oe_title oe_left">
+                            <h1>
+                            </h1>
+                        </div>
+                            <group string="Identification">
+                                <field name="name"/>
+                                <field name="number"/>
+                                <field name="type"/>
+                                <field name="belterra_name"/>
+                                <field name="belterra_number"/>
+                                <field name="asb_name"/>
+                                <field name="asb_number"/>
+                            </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                 </form>
+
+
+            </field>
+
+        </record>
+
+         <record id="view_viacore_accounts_filter" model="ir.ui.view">
+            <field name="name">accounts</field>
+            <field name="model">viacore.accounts</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="name" />
+                </search>
+            </field>
+        </record>
+
+        <record id="action_viacore_accounts" model="ir.actions.act_window">
+            <field name="name">Accounts</field>
+            <field name="res_model">viacore.accounts</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Accounts" id="menu_viacore_accounts" action="action_viacore_accounts" parent="base.menu_viacore_migration_config" />
+
+
+    </data>
+</odoo>
